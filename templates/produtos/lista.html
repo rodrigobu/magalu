@@ -1,0 +1,58 @@
+{% extends "base.html" %}
+{% load i18n  %}
+{% load bootstrap %}
+
+{% block custom_css %}
+{% endblock %}
+{% block main %}
+<br>
+<div class='col-lg-12 text-center'>
+    <h1 class="">Lista de Produtos</h1>
+</div>
+<br>
+<table class="table">
+    <tr>
+        <thead class="thead-light">
+            <tr>
+                <th scope="col"></th>
+                <th scope="col">Titulo</th>
+                <th scope="col">Marca</th>
+                <th scope="col">Produto</th>
+                <th scope="col">Review</th>
+                <th scope="col"></th>
+
+            </tr>
+        </thead>
+        <tbody>
+            {% for produto in produtos %}
+            <tr>
+                <td><img src="{{produto.image}}" alt="{{produto.title}}" width='100'></td>
+                <td>{{produto.title}}</td>
+                <td>{{produto.brand}}</td>
+                <td>{{produto.price}}</td>
+                <td>{{produto.review_score}}</td>
+                <td>
+                    <a href="{% url 'produtos.edicao' pk=produto.pk %}">
+                        <input type="button" class='btn btn-info' value="Editar">
+                    </a>
+                    <a href="{% url 'produtos.delete' pk=produto.pk %}">
+                        <input type="button" class='btn btn-danger' value="Excluir">
+                    </a>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+</table>
+<a href="{% url 'produtos.cadastro' %}">
+    <input type="button" class='btn btn-success' value="Adicionar">
+</a>
+{% if is_paginated %}
+{% include "_pagination.html" %}
+{% endif %}
+
+
+{% endblock %}
+
+{% block custom_js %}
+
+{% endblock %}

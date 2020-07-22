@@ -1,0 +1,26 @@
+{% extends "base.html" %}
+{% load i18n  %}
+{% load bootstrap %}
+
+{% block main %}
+
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Excluir o Item da lista {{object.client.name}} (<strong>{{object.client.cpf}}</strong>) #{{object.id}}</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="alert alert-warning" role="alert">
+                Deseja excluir o item: <strong>{{ object.product.title }}</strong> ?
+            </div>
+            <button type="submit" class="btn btn-danger">Excluir</button>
+            <a href="{% url 'favoritos.lista' %}">
+                <input type="button" class="btn btn-primary" value='Voltar'>
+            </a>
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

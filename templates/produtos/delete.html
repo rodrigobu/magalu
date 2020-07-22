@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load i18n  %}
+
+{% block main %}
+<div class="card">
+    <div class="card-header">
+        <h5 class="card-title">Excluir Produto {{object.title}} {{object.brand}} #{{object.id}}</h5>
+    </div>
+    <div class="card-body">
+        <form method="post">
+            {% csrf_token %}
+            <div class="alert alert-warning" role="alert">
+                Deseja excluir o produto: <strong>{{ object.title }}</strong> ?
+            </div>
+            <button type="submit" class="btn btn-danger">Excluir</button>
+            <a href="{% url 'produtos.lista' %}">
+                <input type="button" class="btn btn-primary" value='Voltar'>
+            </a>
+            
+        </form>
+    </div>
+</div>
+
+
+{% endblock %}

@@ -1,0 +1,36 @@
+{% extends "base.html" %}
+{% load i18n  %}
+{% load bootstrap %}
+
+{% block custom_css %}
+{% endblock %}
+{% block main %}
+
+<form method="post" id="form_dados" data-parsley-validate>
+
+    <div class="col-lg-4"></div>
+    <div class="col-lg-8 align-items-center">
+        <br>
+            <h1 class="">Cadastro de Clientes</h1>
+        <br>
+        {% csrf_token %}
+        {{form|bootstrap}}
+        
+        <div class="col-lg-12 col-xs-12 col-md-1 pull-right" style="margin-top: 20px;">
+            <button id="id_btn_salvar" class="btn btn-md btn-success pull-right" name="btn_salvar" type="submit">
+                <span class="bigger-110">{% trans 'Salvar' %}</span>
+            </button>
+            <a href="{% url 'clientes.lista' %}">
+                <input type="button" class="btn btn-primary" value='Voltar'>
+            </a>
+        </div>
+    </div>
+
+
+</form>
+
+
+{% endblock %}
+
+{% block custom_js %}
+{% endblock %}

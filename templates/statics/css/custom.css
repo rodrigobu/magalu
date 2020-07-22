@@ -1,0 +1,15 @@
+button {
+    box-shadow: 2px 2px 5px grey;
+  }
+
+input.btn {
+  box-shadow: 2px 2px 5px grey;
+}
+
+.border-bottom {
+  border-bottom: 1px solid rgba(0, 123, 255)!important;
+}
+
+.shadow-sm {
+  box-shadow: 0 .500rem .25rem rgba(0,0,0,.075)!important;
+}
